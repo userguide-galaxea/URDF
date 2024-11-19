@@ -432,8 +432,8 @@
     <limit
       lower="-1.1345"
       upper="1.8326"
-      effort="0"
-      velocity="0" />
+      effort="100"
+      velocity="2.5" />
   </joint>
   <link
     name="torso_link2">
@@ -490,8 +490,8 @@
     <limit
       lower="-2.7925"
       upper="2.5307"
-      effort="0"
-      velocity="0" />
+      effort="100"
+      velocity="2.5" />
   </joint>
   <link
     name="torso_link3">
@@ -544,12 +544,12 @@
     <child
       link="torso_link3" />
     <axis
-      xyz="0 0 1" />
+      xyz="0 0 -1" />
     <limit
       lower="-2.0944"
       upper="1.8326"
-      effort="0"
-      velocity="0" />
+      effort="100"
+      velocity="2.5" />
   </joint>
   <link
     name="torso_link4">
@@ -606,8 +606,8 @@
     <limit
       lower="-3.0543"
       upper="3.0543"
-      effort="0"
-      velocity="0" />
+      effort="100"
+      velocity="2.5" />
   </joint>
   <link
     name="zed_link">
