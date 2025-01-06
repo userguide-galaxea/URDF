@@ -1,8 +1,6 @@
 <launch>
   <include
-    file="$(find gazebo_ros)/launch/empty_world.launch">
-        <arg name="paused" value="true" />
-    </include>
+    file="$(find gazebo_ros)/launch/empty_world.launch" />
   <node
     name="tf_footprint_base"
     pkg="tf"
@@ -12,7 +10,7 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find R1)/urdf/R1.urdf -urdf -model R1"
+    args="-file $(find r1_v2_1_0)/urdf/r1_v2_1_0.urdf -urdf -model r1_v2_1_0"
     output="screen" />
   <node
     name="fake_joint_calibration"
