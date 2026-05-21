@@ -9,5 +9,3 @@ Robot Arm:
 Robot:
 
 - [R1 URDF](./R1/)
-- R1 Lite URDF (coming soon)
-- R1 Pro URDF (coming soon)

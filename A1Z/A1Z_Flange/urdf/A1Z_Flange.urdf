@@ -99,8 +99,8 @@
     <limit
       lower="-2.094"
       upper="2.094"
-      effort="0"
-      velocity="0" />
+      effort="20"
+      velocity="5.65" />
   </joint>
   <link
     name="arm_link2">
@@ -157,8 +157,8 @@
     <limit
       lower="0"
       upper="3.142"
-      effort="0"
-      velocity="0" />
+      effort="25"
+      velocity="5.65" />
   </joint>
   <link
     name="arm_link3">
@@ -213,10 +213,10 @@
     <axis
       xyz="0 1 0" />
     <limit
-      lower="0"
-      upper="3.142"
-      effort="0"
-      velocity="0" />
+      lower="-3.142"
+      upper="0"
+      effort="20"
+      velocity="5.65" />
   </joint>
   <link
     name="arm_link4">
@@ -273,8 +273,8 @@
     <limit
       lower="-1.309"
       upper="1.309"
-      effort="0"
-      velocity="0" />
+      effort="9"
+      velocity="3.77" />
   </joint>
   <link
     name="arm_link5">
@@ -331,8 +331,8 @@
     <limit
       lower="-1.484"
       upper="1.484"
-      effort="0"
-      velocity="0" />
+      effort="3.5"
+      velocity="10.47" />
   </joint>
   <link
     name="arm_link6">
@@ -389,7 +389,7 @@
     <limit
       lower="-2.007"
       upper="2.007"
-      effort="0"
-      velocity="0" />
+      effort="3.5"
+      velocity="10.47" />
   </joint>
 </robot>
