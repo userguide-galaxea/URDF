@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>r1pro_urdf</name>
+  <version>1.0.0</version>
+  <description>
+    URDF Description package for r1pro.
+    This package contains configuration data, 3D models and launch files.
+  </description>
+  
+  <!-- 维护者信息需补全 -->
+  <maintainer email="TODO@email.com">Your Name</maintainer>
+  <license>BSD</license>
+  
+  <!-- 建议添加代码仓库链接 -->
+  <url type="repository">https://github.com/your_org/r1pro</url>
+  <author email="TODO@email.com">TODO</author>
+
+  <!-- 构建工具链 -->
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>ament_cmake_auto</buildtool_depend>
+
+  <!-- 核心依赖项 -->
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher</exec_depend>
+  <exec_depend>joint_state_publisher_gui</exec_depend>
+  <exec_depend>rviz2</exec_depend>
+  <exec_depend>gazebo_ros_pkgs</exec_depend>
+  <exec_depend>urdf</exec_depend>
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>ament_index_python</exec_depend>
+
+  <!-- Launch文件依赖 -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+
+  <!-- 可选扩展依赖 -->
+  <!-- <exec_depend>moveit_core</exec_depend> -->
+  <!-- <exec_depend>controller_manager</exec_depend> -->
+
+  <!-- 导出配置 -->
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
