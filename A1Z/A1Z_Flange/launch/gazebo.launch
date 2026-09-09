@@ -10,7 +10,7 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find A1Z_nogripper)/urdf/A1Z_nogripper.urdf -urdf -model A1Z_nogripper"
+    args="-file $(find A1Z_Flange)/urdf/A1Z_Flange.urdf -urdf -model A1Z_Flange"
     output="screen" />
   <node
     name="fake_joint_calibration"

@@ -1,9 +1,7 @@
 <launch>
-  <arg
-    name="model" />
   <param
     name="robot_description"
-    textfile="$(find A1Z_nogripper)/urdf/A1Z_nogripper.urdf" />
+    textfile="$(find A1Z_G1Z)/urdf/A1Z_G1Z.urdf" />
   <node
     name="joint_state_publisher_gui"
     pkg="joint_state_publisher_gui"
@@ -15,6 +13,5 @@
   <node
     name="rviz"
     pkg="rviz"
-    type="rviz"
-    args="-d $(find A1Z_nogripper)/urdf.rviz" />
+    type="rviz" />
 </launch>

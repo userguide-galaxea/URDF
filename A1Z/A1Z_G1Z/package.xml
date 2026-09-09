@@ -1,10 +1,10 @@
 <package format="2">
-  <name>A1Z_nogripper</name>
+  <name>A1Z_G1Z</name>
   <version>1.0.0</version>
   <description>
-    <p>URDF Description package for A1Z_nogripper</p>
+    <p>URDF Description package for A1Z_G1Z</p>
     <p>This package contains configuration data, 3D models and launch files
-for A1Z_nogripper robot</p>
+for A1Z_G1Z robot</p>
   </description>
   <author>TODO</author>
   <maintainer email="TODO@email.com" />
