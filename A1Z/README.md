@@ -30,8 +30,9 @@ sizes and finite coordinates, and all inertia tensors (positive principal moment
 and rigid-body triangle inequalities). The G1Z model has 9 links and 8 joints;
 the Flange model has 7 links and 6 joints.
 
-The existing CSV and export logs are historical CAD artifacts, not the current
-model specification. These remain ROS 1 catkin packages. Package names and launch
-URDF paths have been aligned, and display launch files no longer reference a
+Historical CAD CSV files, export logs, and unused joint-name configurations have
+been removed. The URDF files define the current models. These remain ROS 1 catkin
+packages. Package names and launch URDF paths have been aligned, and display
+launch files no longer reference a
 missing RViz configuration. No ROS/RViz/Gazebo runtime, catkin build, hardware test,
 or independent CAD mass-property verification was performed.
