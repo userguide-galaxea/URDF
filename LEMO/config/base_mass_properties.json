@@ -1,0 +1,213 @@
+{
+  "model": "LEMO",
+  "cad_configuration": "Default",
+  "cad_frame": "coordinate system 1",
+  "source": {
+    "old_urdf_sha256": "29b5126dcae657fd785ac2745287f7d77a882ef348070bc35519a4c51441e0a7",
+    "new_base_stl_sha256": "083f4e06b50fc4c9f8e8e76f12c422447dee1148abbb3786d09adfaa79d37f95",
+    "arm_meshes_sha256": {
+      "a1z_base_link.STL": "3ad75b62388108b0792028dfaadb65e8cbb7e8698042d5c270f566808a479345",
+      "arm_link1.STL": "8a92b987c41998e9edca22d9eca991fb8f85789060e59dfc8ffb0000c39b2756",
+      "arm_link2.STL": "38735343df6f709e83edc91432ad7880456cdc32af9f50df651d7eaa62cdb06f",
+      "arm_link3.STL": "6b91d251eb5b96f0ba9b8a1f875ff204627b54dd596529ce5c8f6f3eed538c89",
+      "arm_link4.STL": "da8d3bd051d39ba13b25636f243b5f0898009ca1656b5efbd226be80b1a8f410",
+      "arm_link5.STL": "737afd2cc87651ed3a2e7a56aedb1190b256cbfe1b68339b30cc04efe787ef18",
+      "arm_link6.STL": "e0fa3550a433a40755c4a8c8f2e9a8b369052b7ab8836f5c44c36554a90a4422",
+      "gripper_finger_left_link.STL": "f0bfdd48fc91b37f3156b290fc5947ff54cd3e09a47c568ccc2bd53c984b916e",
+      "gripper_finger_rIght_link.STL": "7ae5bb8843726cab85befab71ef456f26d437ee313427fd193f25857b590cf27"
+    }
+  },
+  "cad_input": {
+    "mass_g": 3875,
+    "volume_mm3": 1760037.19,
+    "surface_area_mm2": 639345.21,
+    "com_mm": [
+      -21.6,
+      0.02,
+      58.64
+    ],
+    "com_inertia_g_mm2": [
+      [
+        244588534.09,
+        1704.0,
+        1481734.49
+      ],
+      [
+        1704.0,
+        61388244.74,
+        4674.02
+      ],
+      [
+        1481734.49,
+        4674.02,
+        199749968.32
+      ]
+    ],
+    "origin_inertia_g_mm2_reference_only": [
+      [
+        257915306.27,
+        3596.68,
+        6389894.82
+      ],
+      [
+        3596.68,
+        76522657.56,
+        -465.03
+      ],
+      [
+        6389894.82,
+        -465.03,
+        201557612.92
+      ]
+    ],
+    "principal_inertia_g_mm2": [
+      61388244.57,
+      199701056.46,
+      244637446.12
+    ],
+    "principal_axes_reported_rounded": [
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0.03,
+        0,
+        -1
+      ],
+      [
+        -1,
+        0,
+        -0.03
+      ]
+    ],
+    "tensor_notation": "negative; reported off-diagonal matrix entries retained"
+  },
+  "urdf_si": {
+    "mass_kg": 3.875,
+    "com_m": [
+      -0.0216,
+      2e-05,
+      0.058640000000000005
+    ],
+    "com_inertia_kg_m2": [
+      [
+        0.24458853409000003,
+        1.7040000000000001e-06,
+        0.0014817344900000002
+      ],
+      [
+        1.7040000000000001e-06,
+        0.06138824474000001,
+        4.674020000000001e-06
+      ],
+      [
+        0.0014817344900000002,
+        4.674020000000001e-06,
+        0.19974996832
+      ]
+    ],
+    "inertial_rpy_rad": [
+      0,
+      0,
+      0
+    ],
+    "mounts_m": {
+      "L": [
+        0,
+        0.375,
+        0.005
+      ],
+      "R": [
+        0,
+        -0.375,
+        0.005
+      ]
+    },
+    "mount_rpy_rad": [
+      0,
+      0,
+      0
+    ]
+  },
+  "mesh_registration": {
+    "status": "estimated_from_mesh_geometry_and_uniform_density_COM_not_CAD_confirmed",
+    "equation": "p_base_m = 0.001 * R * p_STL_mm + t_m",
+    "rotation_matrix": [
+      [
+        -1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ]
+    ],
+    "rpy_rad": [
+      1.5707963267948966,
+      0,
+      3.141592653589793
+    ],
+    "translation_m": [
+      0.06716259774798565,
+      -0.5203663922714672,
+      -0.000548149153342834
+    ],
+    "scale": [
+      0.001,
+      0.001,
+      0.001
+    ],
+    "method": "Axis permutation/signs agree with COM inertia and upright geometry; translation aligns the signed-volume uniform-density STL centroid to the supplied rounded CAD COM. This does not establish the exact CAD frame.",
+    "uniform_density_assumption": true,
+    "stl_measured_volume_mm3": 1760533.554847877,
+    "stl_measured_surface_area_mm2": 639283.0054640183,
+    "stl_uniform_density_centroid_mm": [
+      88.76259774798564,
+      59.188149153342835,
+      520.3863922714671
+    ],
+    "stl_uniform_density_com_inertia_g_mm2": [
+      [
+        244491441.92594662,
+        -1483356.1365852389,
+        -930.818582945252
+      ],
+      [
+        -1483356.1365852642,
+        199681720.85300437,
+        4801.665089177369
+      ],
+      [
+        -930.8185829116668,
+        4801.665089043028,
+        61348648.172948025
+      ]
+    ],
+    "relative_inertia_matrix_error": 0.00038897249914957775,
+    "stl_registered_bounds_m": [
+      [
+        -0.12501634207135032,
+        -0.5200016006695709,
+        -0.0001695868817478328
+      ],
+      [
+        0.06048413571948223,
+        0.5199983538222828,
+        0.6010431594404072
+      ]
+    ],
+    "mount_surface_raw_y_mm": 5.57899808883667,
+    "mount_surface_registered_z_mm": 5.030848935493836,
+    "mount_surface_vs_joint_z_error_mm": 0.03084893549383594
+  },
+  "retained_source_limit_caveat": "G1Z prismatic finger effort=3 N, velocity=10.47 m/s are retained from the supplied old URDF, not validated actuator limits."
+}

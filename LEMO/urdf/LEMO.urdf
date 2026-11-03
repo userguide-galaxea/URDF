@@ -1,0 +1,1072 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="LEMO">
+  <!--
+    LEMO dual-arm platform. Base mesh registration is estimated from supplied data.
+    All URDF lengths are metres. The supplied mounting positions were:
+      L: (0,  375, 5) mm -> (0,  0.375, 0.005) m
+      R: (0, -375, 5) mm -> (0, -0.375, 0.005) m
+    Both A1Z mounting frames use rpy="0 0 0".
+  -->
+  <link name="base_link">
+    <inertial>
+      <!-- CAD coordinate system 1; COM-frame inertia, kg and kg*m^2. -->
+      <origin xyz="-0.02160 0.00002 0.05864" rpy="0 0 0" />
+      <mass value="3.875" />
+      <inertia
+        ixx="0.24458853409"
+        ixy="0.00000170400"
+        ixz="0.00148173449"
+        iyy="0.06138824474"
+        iyz="0.00000467402"
+        izz="0.19974996832" />
+    </inertial>
+    <visual>
+      <!-- Estimated STL registration; see config/base_mass_properties.json. -->
+      <origin xyz="0.067162597748 -0.520366392271 -0.000548149153" rpy="1.5707963267948966 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://lemo_description/meshes/base_link.STL"
+              scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="platform_gray">
+        <color rgba="0.45 0.48 0.52 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0.067162597748 -0.520366392271 -0.000548149153" rpy="1.5707963267948966 0 3.141592653589793" />
+      <geometry>
+        <mesh filename="package://lemo_description/meshes/base_link.STL"
+              scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="L_arm_mount_joint" type="fixed">
+    <origin xyz="0 0.375 0.005" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="L_arm_base_link" />
+  </joint>
+
+  <link
+    name="L_arm_base_link">
+    <inertial>
+      <origin
+        xyz="3E-06 -4.871E-05 0.03017045"
+        rpy="0 0 0" />
+      <mass
+        value="1.02443598" />
+      <inertia
+        ixx="0.00175236"
+        ixy="-1E-08"
+        ixz="3E-08"
+        iyy="0.00088755"
+        iyz="1.98E-06"
+        izz="0.00159613" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/a1z_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/a1z_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="L_arm_link1">
+    <inertial>
+      <origin
+        xyz="0.0051248 0.00352265 0.01887119"
+        rpy="0 0 0" />
+      <mass
+        value="0.10959668" />
+      <inertia
+        ixx="0.00015534"
+        ixy="-3.05E-06"
+        ixz="-1.22E-05"
+        iyy="4.537E-05"
+        iyz="-5.9E-06"
+        izz="0.000148" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_arm_joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="L_arm_base_link" />
+    <child
+      link="L_arm_link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.094"
+      upper="2.094"
+      effort="20"
+      velocity="5.65" />
+  </joint>
+  <link
+    name="L_arm_link2">
+    <inertial>
+      <origin
+        xyz="-0.1316067 -0.00021276 2.29E-06"
+        rpy="0 0 0" />
+      <mass
+        value="1.63304631" />
+      <inertia
+        ixx="0.00097959"
+        ixy="6.844E-05"
+        ixz="-6.9E-07"
+        iyy="0.02376811"
+        iyz="4E-08"
+        izz="0.02397316" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_arm_joint2"
+    type="revolute">
+    <origin
+      xyz="0.02 0 0.043"
+      rpy="0 0 0" />
+    <parent
+      link="L_arm_link1" />
+    <child
+      link="L_arm_link2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.142"
+      effort="25"
+      velocity="5.65" />
+  </joint>
+  <link
+    name="L_arm_link3">
+    <inertial>
+      <origin
+        xyz="0.15940760 -0.00005646 0.05493054"
+        rpy="0 0 0" />
+      <mass
+        value="0.99109270" />
+      <inertia
+        ixx="0.00071333"
+        ixy="-0.00008986"
+        ixz="-0.00072729"
+        iyy="0.00923813"
+        iyz="-0.00001487"
+        izz="0.00933122" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_arm_joint3"
+    type="revolute">
+    <origin
+      xyz="-0.264 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="L_arm_link2" />
+    <child
+      link="L_arm_link3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.142"
+      upper="0"
+      effort="20"
+      velocity="5.65" />
+  </joint>
+  <link
+    name="L_arm_link4">
+    <inertial>
+      <origin
+        xyz="0.06143699 0.00107414 0.05309221"
+        rpy="0 0 0" />
+      <mass
+        value="0.48309874" />
+      <inertia
+        ixx="0.00043595"
+        ixy="0.00003158"
+        ixz="-0.00023452"
+        iyy="0.00059163"
+        iyz="0.00002754"
+        izz="0.00047698" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_arm_joint4"
+    type="revolute">
+    <origin
+      xyz="0.245 0 0.06"
+      rpy="0 0 0" />
+    <parent
+      link="L_arm_link3" />
+    <child
+      link="L_arm_link4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.309"
+      upper="1.309"
+      effort="9"
+      velocity="3.77" />
+  </joint>
+  <link
+    name="L_arm_link5">
+    <inertial>
+      <origin
+        xyz="-0.00366248 -2.724E-05 -0.03904971"
+        rpy="0 0 0" />
+      <mass
+        value="0.36875049" />
+      <inertia
+        ixx="0.00010146"
+        ixy="-7E-08"
+        ixz="5.55E-06"
+        iyy="0.00011993"
+        iyz="0"
+        izz="8.271E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_arm_joint5"
+    type="revolute">
+    <origin
+      xyz="0.074 0 0.042"
+      rpy="0 0 0" />
+    <parent
+      link="L_arm_link4" />
+    <child
+      link="L_arm_link5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.484"
+      upper="1.484"
+      effort="3.5"
+      velocity="10.47" />
+  </joint>
+  <link
+    name="L_arm_link6">
+    <inertial>
+      <origin
+        xyz="0.04060778 -0.00002179 -0.00012759"
+        rpy="0 0 0" />
+      <mass
+        value="0.64400562" />
+      <inertia
+        ixx="0.00041012"
+        ixy="-0.00000055"
+        ixz="-0.00000201"
+        iyy="0.00042613"
+        iyz="-0.00000019"
+        izz="0.00052209" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="L_arm_joint6"
+    type="revolute">
+    <origin
+      xyz="0.0235 0 -0.042"
+      rpy="0 0 0" />
+    <parent
+      link="L_arm_link5" />
+    <child
+      link="L_arm_link6" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2.007"
+      upper="2.007"
+      effort="3.5"
+      velocity="10.47" />
+  </joint>
+  <link
+   name="L_gripper_finger_left_link">
+		<inertial>
+			<origin
+			  xyz="0.04146511 0.03324208 -0.01497026"
+			  rpy="0 0 0" />
+			<mass
+			  value="0.14648590" />
+			<inertia
+			  ixx="0.00006012"
+			  ixy="-0.00001638"
+			  ixz="0.00001456"
+			  iyy="0.00012420"
+			  iyz="0.00001106"
+			  izz="0.00013122" />
+		</inertial>
+		<visual>
+			<origin
+			  xyz="0 0 0"
+			  rpy="0 0 0" />
+			<geometry>
+				<mesh
+				  filename="package://lemo_description/meshes/gripper_finger_left_link.STL" />
+			</geometry>
+			<material
+			  name="">
+				<color
+				  rgba="0.75294 0.75294 0.75294 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin
+			  xyz="0 0 0"
+			  rpy="0 0 0" />
+			<geometry>
+				<mesh
+				  filename="package://lemo_description/meshes/gripper_finger_left_link.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <joint
+	  name="L_gripper_finger_left_joint"
+	  type="prismatic">
+		<origin
+		  xyz="0.0727 -0.025 0.018"
+		  rpy="0 0 0" />
+		<parent
+		  link="L_arm_link6" />
+		<child
+		  link="L_gripper_finger_left_link" />
+		<axis
+		  xyz="0 1 0" />
+		<limit
+		  lower="0"
+		  upper="0.048"
+		  effort="3"
+		  velocity="10.47" />
+	</joint>
+  <link
+	  name="L_gripper_finger_rIght_link">
+		<inertial>
+			<origin
+			  xyz="0.04146571 -0.03324169 0.01497057"
+			  rpy="0 0 0" />
+			<mass
+			  value="0.14648224" />
+			<inertia
+			  ixx="0.00006012"
+			  ixy="0.00001638"
+			  ixz="-0.00001456"
+			  iyy="0.00012420"
+			  iyz="0.00001106"
+			  izz="0.00013121" />
+		</inertial>
+		<visual>
+			<origin
+			  xyz="0 0 0"
+			  rpy="0 0 0" />
+			<geometry>
+				<mesh
+				  filename="package://lemo_description/meshes/gripper_finger_rIght_link.STL" />
+			</geometry>
+			<material
+			  name="">
+				<color
+				  rgba="0.75294 0.75294 0.75294 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin
+			  xyz="0 0 0"
+			  rpy="0 0 0" />
+			<geometry>
+				<mesh
+				  filename="package://lemo_description/meshes/gripper_finger_rIght_link.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <joint
+	  name="L_gripper_finger_rIght_joint"
+	  type="prismatic">
+		<origin
+		  xyz="0.0727 0.025 -0.018"
+		  rpy="0 0 0" />
+		<parent
+		  link="L_arm_link6" />
+		<child
+		  link="L_gripper_finger_rIght_link" />
+		<axis
+		  xyz="0 1 0" />
+		<limit
+		  lower="-0.048"
+		  upper="0"
+		  effort="3"
+		  velocity="10.47" />
+		<mimic
+		  joint="L_gripper_finger_left_joint"
+		  multiplier="-1"
+		  offset="0" />
+	</joint>
+
+  <joint name="R_arm_mount_joint" type="fixed">
+    <origin xyz="0 -0.375 0.005" rpy="0 0 0" />
+    <parent link="base_link" />
+    <child link="R_arm_base_link" />
+  </joint>
+
+  <link
+    name="R_arm_base_link">
+    <inertial>
+      <origin
+        xyz="3E-06 -4.871E-05 0.03017045"
+        rpy="0 0 0" />
+      <mass
+        value="1.02443598" />
+      <inertia
+        ixx="0.00175236"
+        ixy="-1E-08"
+        ixz="3E-08"
+        iyy="0.00088755"
+        iyz="1.98E-06"
+        izz="0.00159613" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/a1z_base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/a1z_base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="R_arm_link1">
+    <inertial>
+      <origin
+        xyz="0.0051248 0.00352265 0.01887119"
+        rpy="0 0 0" />
+      <mass
+        value="0.10959668" />
+      <inertia
+        ixx="0.00015534"
+        ixy="-3.05E-06"
+        ixz="-1.22E-05"
+        iyy="4.537E-05"
+        iyz="-5.9E-06"
+        izz="0.000148" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_arm_joint1"
+    type="revolute">
+    <origin
+      xyz="0 0 0.075"
+      rpy="0 0 0" />
+    <parent
+      link="R_arm_base_link" />
+    <child
+      link="R_arm_link1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-2.094"
+      upper="2.094"
+      effort="20"
+      velocity="5.65" />
+  </joint>
+  <link
+    name="R_arm_link2">
+    <inertial>
+      <origin
+        xyz="-0.1316067 -0.00021276 2.29E-06"
+        rpy="0 0 0" />
+      <mass
+        value="1.63304631" />
+      <inertia
+        ixx="0.00097959"
+        ixy="6.844E-05"
+        ixz="-6.9E-07"
+        iyy="0.02376811"
+        iyz="4E-08"
+        izz="0.02397316" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_arm_joint2"
+    type="revolute">
+    <origin
+      xyz="0.02 0 0.043"
+      rpy="0 0 0" />
+    <parent
+      link="R_arm_link1" />
+    <child
+      link="R_arm_link2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="3.142"
+      effort="25"
+      velocity="5.65" />
+  </joint>
+  <link
+    name="R_arm_link3">
+    <inertial>
+      <origin
+        xyz="0.15940760 -0.00005646 0.05493054"
+        rpy="0 0 0" />
+      <mass
+        value="0.99109270" />
+      <inertia
+        ixx="0.00071333"
+        ixy="-0.00008986"
+        ixz="-0.00072729"
+        iyy="0.00923813"
+        iyz="-0.00001487"
+        izz="0.00933122" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_arm_joint3"
+    type="revolute">
+    <origin
+      xyz="-0.264 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="R_arm_link2" />
+    <child
+      link="R_arm_link3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-3.142"
+      upper="0"
+      effort="20"
+      velocity="5.65" />
+  </joint>
+  <link
+    name="R_arm_link4">
+    <inertial>
+      <origin
+        xyz="0.06143699 0.00107414 0.05309221"
+        rpy="0 0 0" />
+      <mass
+        value="0.48309874" />
+      <inertia
+        ixx="0.00043595"
+        ixy="0.00003158"
+        ixz="-0.00023452"
+        iyy="0.00059163"
+        iyz="0.00002754"
+        izz="0.00047698" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_arm_joint4"
+    type="revolute">
+    <origin
+      xyz="0.245 0 0.06"
+      rpy="0 0 0" />
+    <parent
+      link="R_arm_link3" />
+    <child
+      link="R_arm_link4" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-1.309"
+      upper="1.309"
+      effort="9"
+      velocity="3.77" />
+  </joint>
+  <link
+    name="R_arm_link5">
+    <inertial>
+      <origin
+        xyz="-0.00366248 -2.724E-05 -0.03904971"
+        rpy="0 0 0" />
+      <mass
+        value="0.36875049" />
+      <inertia
+        ixx="0.00010146"
+        ixy="-7E-08"
+        ixz="5.55E-06"
+        iyy="0.00011993"
+        iyz="0"
+        izz="8.271E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_arm_joint5"
+    type="revolute">
+    <origin
+      xyz="0.074 0 0.042"
+      rpy="0 0 0" />
+    <parent
+      link="R_arm_link4" />
+    <child
+      link="R_arm_link5" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-1.484"
+      upper="1.484"
+      effort="3.5"
+      velocity="10.47" />
+  </joint>
+  <link
+    name="R_arm_link6">
+    <inertial>
+      <origin
+        xyz="0.04060778 -0.00002179 -0.00012759"
+        rpy="0 0 0" />
+      <mass
+        value="0.64400562" />
+      <inertia
+        ixx="0.00041012"
+        ixy="-0.00000055"
+        ixz="-0.00000201"
+        iyy="0.00042613"
+        iyz="-0.00000019"
+        izz="0.00052209" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://lemo_description/meshes/arm_link6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="R_arm_joint6"
+    type="revolute">
+    <origin
+      xyz="0.0235 0 -0.042"
+      rpy="0 0 0" />
+    <parent
+      link="R_arm_link5" />
+    <child
+      link="R_arm_link6" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-2.007"
+      upper="2.007"
+      effort="3.5"
+      velocity="10.47" />
+  </joint>
+  <link
+   name="R_gripper_finger_left_link">
+		<inertial>
+			<origin
+			  xyz="0.04146511 0.03324208 -0.01497026"
+			  rpy="0 0 0" />
+			<mass
+			  value="0.14648590" />
+			<inertia
+			  ixx="0.00006012"
+			  ixy="-0.00001638"
+			  ixz="0.00001456"
+			  iyy="0.00012420"
+			  iyz="0.00001106"
+			  izz="0.00013122" />
+		</inertial>
+		<visual>
+			<origin
+			  xyz="0 0 0"
+			  rpy="0 0 0" />
+			<geometry>
+				<mesh
+				  filename="package://lemo_description/meshes/gripper_finger_left_link.STL" />
+			</geometry>
+			<material
+			  name="">
+				<color
+				  rgba="0.75294 0.75294 0.75294 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin
+			  xyz="0 0 0"
+			  rpy="0 0 0" />
+			<geometry>
+				<mesh
+				  filename="package://lemo_description/meshes/gripper_finger_left_link.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <joint
+	  name="R_gripper_finger_left_joint"
+	  type="prismatic">
+		<origin
+		  xyz="0.0727 -0.025 0.018"
+		  rpy="0 0 0" />
+		<parent
+		  link="R_arm_link6" />
+		<child
+		  link="R_gripper_finger_left_link" />
+		<axis
+		  xyz="0 1 0" />
+		<limit
+		  lower="0"
+		  upper="0.048"
+		  effort="3"
+		  velocity="10.47" />
+	</joint>
+  <link
+	  name="R_gripper_finger_rIght_link">
+		<inertial>
+			<origin
+			  xyz="0.04146571 -0.03324169 0.01497057"
+			  rpy="0 0 0" />
+			<mass
+			  value="0.14648224" />
+			<inertia
+			  ixx="0.00006012"
+			  ixy="0.00001638"
+			  ixz="-0.00001456"
+			  iyy="0.00012420"
+			  iyz="0.00001106"
+			  izz="0.00013121" />
+		</inertial>
+		<visual>
+			<origin
+			  xyz="0 0 0"
+			  rpy="0 0 0" />
+			<geometry>
+				<mesh
+				  filename="package://lemo_description/meshes/gripper_finger_rIght_link.STL" />
+			</geometry>
+			<material
+			  name="">
+				<color
+				  rgba="0.75294 0.75294 0.75294 1" />
+			</material>
+		</visual>
+		<collision>
+			<origin
+			  xyz="0 0 0"
+			  rpy="0 0 0" />
+			<geometry>
+				<mesh
+				  filename="package://lemo_description/meshes/gripper_finger_rIght_link.STL" />
+			</geometry>
+		</collision>
+	</link>
+  <joint
+	  name="R_gripper_finger_rIght_joint"
+	  type="prismatic">
+		<origin
+		  xyz="0.0727 0.025 -0.018"
+		  rpy="0 0 0" />
+		<parent
+		  link="R_arm_link6" />
+		<child
+		  link="R_gripper_finger_rIght_link" />
+		<axis
+		  xyz="0 1 0" />
+		<limit
+		  lower="-0.048"
+		  upper="0"
+		  effort="3"
+		  velocity="10.47" />
+		<mimic
+		  joint="R_gripper_finger_left_joint"
+		  multiplier="-1"
+		  offset="0" />
+	</joint>
+</robot>
